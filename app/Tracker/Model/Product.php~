@@ -1,0 +1,14 @@
+<?php
+
+namespace Tracker\Model;
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Product
+ *
+ * @ORM\Table(name="Product")
+ * @ORM\Entity
+ */
+class Product extends Base\Product
+{
+
+}

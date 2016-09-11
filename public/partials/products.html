@@ -1,0 +1,57 @@
+<section class="content-header">
+    <h1>Termékek listája</h1>
+</section>
+<section class="content">
+
+    <a ui-sref="newProduct" class="btn btn-sm btn-info btn-flat pull-left">Új termék hozzáadása</a>
+
+    <table class="table movietable">
+        <tr ng-repeat="product in pager.items">
+            <td> <md-checkbox
+                    ng-model="product.selected"
+                    aria-label="Upload"
+                    ng-true-value="'Igen'"
+                    ng-false-value="'Nem'"
+                    class="md-warn md-align-top-left" flex></td>
+            <td>{{product.title}}</td>
+            <td>{{product.createdAt}}</td>
+            <td>
+                <a class="btn btn-primary" ui-sref="viewProduct({id:product.id})">Megtekint</a>
+                <a class="btn btn-primary" ui-sref="editProduct({id:product.id})">Szerkeszt</a>
+                <a class="btn btn-danger"  ng-click="deleteProduct(product)">Töröl</a>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- pager -->
+    <ul ng-if="pager.pages.length" class="pagination">
+        <li ng-class="{disabled:pager.currentPage === 1}">
+            <a ng-click="setPage(1)">Első</a>
+        </li>
+        <li ng-class="{disabled:pager.currentPage === 1}">
+            <a ng-click="setPage(pager.currentPage - 1)">Előző</a>
+        </li>
+        <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+            <a ng-click="setPage(page)">{{page}}</a>
+        </li>
+        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+            <a ng-click="setPage(pager.currentPage + 1)">Következő</a>
+        </li>
+        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+            <a ng-click="setPage(pager.totalPages)">Utolsó</a>
+        </li>
+    </ul>
+
+    <form ng-app="fileUpload" name="form">
+        <div>
+            <a class="btn btn-sm btn-info btn-flat" ngf-select ng-model="files" ngf-multiple="true">File tallózás</a>
+        </div>
+        <ul>
+            <li ng-repeat="f in files">
+                {{f.name}}
+            </li>
+        </ul>
+        <button class="btn btn-sm btn-info btn-flat" type="submit" ng-click="upload()">Feltölt</button>
+    </form>
+</section>

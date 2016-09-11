@@ -1,0 +1,85 @@
+<div class="register-box">
+    <div class="register-logo">
+        <a ui-sref="main"><b>Etelminta-reg.hu</b></a>
+    </div>
+
+    <div class="register-box-body">
+        <p class="login-box-msg">Új felhasználó regisztrálása</p>
+
+        <form role="form" ng-submit="addUser()" name="addUserForm">
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Név</label>
+                <input md-maxlength="140" ng-model="user.name" name="name" required>
+                <div ng-messages="addUserForm.name.$error" ng-if="addUserForm.$submitted || addUserForm.name.$touched" ng-hide="addUserForm.name.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                    <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Email</label>
+                <input md-maxlength="140" ng-model="user.email" name="email" required type="email">
+                <div ng-messages="addUserForm.email.$error" ng-if="addUserForm.$submitted || addUserForm.email.$touched" ng-hide="addUserForm.email.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                    <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Irányítószám</label>
+                <input md-maxlength="140" ng-model="user.postalCode" name="email" required>
+                <div ng-messages="addUserForm.postalCode.$error" ng-if="addUserForm.$submitted || addUserForm.postalCode.$touched" ng-hide="addUserForm.postalCode.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                    <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Város</label>
+                <input md-maxlength="140" ng-model="user.city" name="city" required>
+                <div ng-messages="addUserForm.city.$error" ng-if="addUserForm.$submitted || addUserForm.city.$touched" ng-hide="addUserForm.city.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                    <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Közterület</label>
+                <input md-maxlength="140" ng-model="user.street" name="email" required>
+                <div ng-messages="addUserForm.street.$error" ng-if="addUserForm.$submitted || addUserForm.street.$touched" ng-hide="addUserForm.street.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                    <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Telefonszám</label>
+                <input md-maxlength="140" ng-model="user.phone" name="phone" required>
+                <div ng-messages="addUserForm.phone.$error" ng-if="addUserForm.$submitted || addUserForm.phone.$touched" ng-hide="addUserForm.phone.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                    <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Jelszó</label>
+                <input ng-model="user.password" name="password" required>
+                <div ng-messages="addUserForm.password.$error" ng-if="addUserForm.$submitted || addUserForm.password.$touched" ng-hide="addUserForm.password.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                </div>
+            </md-input-container>
+            <div class="row">
+                <div class="col-xs-8">
+                    <!--div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> I agree to the <a href="#">terms</a>
+                        </label>
+                    </div-->
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Regisztráció</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+
+        <a ui-sref="login" class="text-center">Vissza a bejelentkezéshez</a>
+    </div>
+    <!-- /.form-box -->
+</div>
+<!-- /.register-box -->

@@ -1,0 +1,31 @@
+<?php
+
+namespace Tracker\Model\Base;
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * OA2Session
+ *
+ * @ORM\MappedSuperclass
+ */
+class OA2Session
+{
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="id", type="integer", precision=0, scale=0, nullable=false, unique=false)
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="IDENTITY")
+	 */
+	private $id;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

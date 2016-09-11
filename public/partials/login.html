@@ -1,0 +1,37 @@
+
+<div class="login-box">
+    <div class="register-logo">
+        <a ui-sref="main"><b>Etelminta-reg.hu</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Kérjük jelentkezzen be</p>
+
+        <form ng-submit="login()">
+            <div class="form-group has-feedback">
+                <input ng-model="user.email" type="email" class="form-control" placeholder="Email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input ng-model="user.password" type="password" class="form-control" placeholder="Jelszó">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row" ng-show="error">
+                <span>{{error}}</span>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Belépés</button>
+                </div>
+                <!-- /.col -->
+            </div>
+
+        </form>
+
+        <a ui-sref="lostPassword">Elfelejtett jelszó</a><br>
+        <a ui-sref="registration" class="text-center">Regisztráció</a>
+
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->

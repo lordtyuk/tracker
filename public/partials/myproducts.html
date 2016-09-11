@@ -1,0 +1,38 @@
+<section class="content-header">
+    <h1>Termékeim listája</h1>
+</section>
+<section class="content">
+
+    <p>
+        <a ng-click="toggleAdd()" class="btn btn-sm btn-info btn-flat">Új termék rögzítése</a>
+    </p>
+
+    <form class="form-horizontal" name="productAddForm" ng-show="showAdd">
+        <div class="box-body">
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Azonosító</label>
+                <input md-maxlength="140" ng-model="product.identifier" name="identifier" required>
+                <div ng-messages="productAddForm.identifier.$error" ng-if="productAddForm.$submitted || productAddForm.identifier.$touched" ng-hide="productAddForm.identifier.$valid">
+                    <div ng-message="required">Kötelezően kitöltendő.</div>
+                    <div ng-message="md-maxlength">Legfeljebb 40 karekter lehet.</div>
+                </div>
+            </md-input-container>
+        </div>
+        <!-- /.box-body -->
+        <div>
+            <button class="btn btn-info pull-right" type="submit" ng-click="productAddForm.$valid && addProduct()">Hozzáad</button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+
+    <table class="table movietable">
+        <tr ng-repeat="product in products">
+            <td>{{product.title}}</td>
+            <td>{{product.createdAt}}</td>
+            <td>
+                <a class="btn btn-primary" ui-sref="viewProduct({id:product.id})">Megtekint</a>
+                <a class="btn btn-danger"  ng-click="deleteProduct(product)">Leválaszt</a>
+            </td>
+        </tr>
+    </table>
+</section>

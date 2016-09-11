@@ -1,0 +1,17 @@
+<section class="content-header">
+    <h1>Felhasználók listája</h1>
+</section>
+<section class="content">
+    <a ui-sref="newTrader" class="btn btn-sm btn-info btn-flat pull-left">Új beszállító hozzáadása</a>
+
+    <table class="table">
+        <tr ng-repeat="user in users">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>
+                <a class="btn btn-primary" ui-sref="viewUser({id:user.id})">Megtekint</a>
+                <a class="btn btn-danger"  ng-click="deleteUser(user)">Töröl</a>
+            </td>
+        </tr>
+    </table>
+</section>

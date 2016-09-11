@@ -1,0 +1,54 @@
+<section class="content-header">
+    <h1>Termék adatlap</h1>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal form-datasheet">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <span class="col-sm-4">Név</span>
+                            <span class="col-sm-8">{{product.title}}</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-sm-4">Azonosító</span>
+                            <span class="col-sm-8">{{product.identifier}}</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <qrcode size="200" data="{{product.identifier}}" download error-correction-level="M" version="5"></qrcode>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-sm-4">Gyártás dátuma</span>
+                            <span class="col-sm-8">{{product.producedAt | date:'yyyy-MM-dd'}}</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-sm-4">Raktározás dátuma</span>
+                            <span class="col-sm-8">{{product.storedAt | date:'yyyy-MM-dd'}}</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-sm-4">Szavatosság dátuma</span>
+                            <span class="col-sm-8">{{product.useBefore | date:'yyyy-MM-dd'}}</span>
+                        </div>
+                        <h2>Csatolt file-ok</h2>
+                        <div class="form-group" ng-repeat="file in product.files">
+                            <span class="col-sm-12"><a href="{{host}}{{file.path}}" target="_blank">{{file.title}}</a></span>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button class="btn btn-default" type="submit" ng-click="back()">Vissza</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>

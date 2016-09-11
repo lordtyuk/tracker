@@ -1,0 +1,13 @@
+del_comments=1
+strip_white_spaces=1
+html_create_ident=0
+code_generate_code=1
+obscure_strings=1
+code_convert_s=1
+string_concat=0
+obf_style=random
+obf_encoding=Basic 
+obf_length=8
+noobcom=
+standardExtensions=.php .php3 .php4 .php5 .phtml .phtm 
+templatesExtensions=.sql .tpl .ini .inc .html

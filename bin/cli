@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../app/common.php';
+
+if ($argc < 2) {
+    print
+        "Usage: {$argv[0]} <command>\n" .
+        "\n" .
+        "Commands:\n" .
+        "  build         Update model bases\n";
+    exit;
+}
+
+$request = new Bullet\Request('GET', '/' . $argv[1]);
+
+// Require paths/routes for command line requests
+$routesDir = __DIR__ . '/../app/routes/';
+require $routesDir . 'cli.php';
+
+// Response
+$app->run($request)->send();

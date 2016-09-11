@@ -1,0 +1,89 @@
+<section class="content-header">
+    <h1>Profil módosítása</h1>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <!-- form start -->
+                    <form role="form" ng-submit="addUser()" name="addUserForm">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Név</label>
+                            <input md-maxlength="140" ng-model="user.name" name="name" required>
+                            <div ng-messages="addUserForm.name.$error" ng-if="addUserForm.$submitted || addUserForm.name.$touched" ng-hide="addUserForm.name.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs ng-show="isAdmin">
+                            <label>Beszállítói azonosító</label>
+                            <input md-maxlength="3" ng-model="user.resellerCode" name="reseller_code">
+                            <div ng-messages="addUserForm.reseller_code.$error" ng-if="addUserForm.$submitted || addUserForm.reseller_code.$touched" ng-hide="addUserForm.reseller_code.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 3 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Email</label>
+                            <input md-maxlength="140" ng-model="user.email" name="email" required type="email">
+                            <div ng-messages="addUserForm.email.$error" ng-if="addUserForm.$submitted || addUserForm.email.$touched" ng-hide="addUserForm.email.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Irányítószám</label>
+                            <input md-maxlength="140" ng-model="user.postalCode" name="postalCode" required>
+                            <div ng-messages="addUserForm.postalCode.$error" ng-if="addUserForm.$submitted || addUserForm.postalCode.$touched" ng-hide="addUserForm.postalCode.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Város</label>
+                            <input md-maxlength="140" ng-model="user.city" name="city" required>
+                            <div ng-messages="addUserForm.city.$error" ng-if="addUserForm.$submitted || addUserForm.city.$touched" ng-hide="addUserForm.city.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Közterület</label>
+                            <input md-maxlength="140" ng-model="user.street" name="street" required>
+                            <div ng-messages="addUserForm.street.$error" ng-if="addUserForm.$submitted || addUserForm.street.$touched" ng-hide="addUserForm.street.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Telefonszám</label>
+                            <input md-maxlength="140" ng-model="user.phone" name="phone" required>
+                            <div ng-messages="addUserForm.phone.$error" ng-if="addUserForm.$submitted || addUserForm.phone.$touched" ng-hide="addUserForm.phone.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Jelszó</label>
+                            <input ng-model="user.password" name="password" required>
+                            <div ng-messages="addUserForm.password.$error" ng-if="addUserForm.$submitted || addUserForm.password.$touched" ng-hide="addUserForm.password.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                            </div>
+                        </md-input-container>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button class="btn btn-default" type="submit" ng-click="cancelModify()">Mégse</button>
+                            <button class="btn btn-info pull-right" type="submit" ng-click="addUserForm.$valid && submitModify()">Módosítás</button>
+                        </div>
+                        <!-- /.box-footer -->
+                    </form>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>

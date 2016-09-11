@@ -1,0 +1,50 @@
+<header class="main-header" ng-show="loggedIn">
+    <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="products">Etelminta-reg.hu</a>
+            </div>
+            <div class="collapse navbar-collapse pull-left">
+                <ul class="nav navbar-nav">
+                    <li ng-class="getClass('/products')" ng-show="isAdmin"><a ui-sref="products">Termékek</a></li>
+                    <li ng-class="getClass('/users')" ng-show="isAdmin"><a ui-sref="users">Felhasználók</a></li>
+                    <li ng-class="getClass('/buyers')" ng-show="isTrader"><a ui-sref="buyers">Vásárlóim</a></li>
+                    <li ng-class="getClass('/myProducts')"><a ui-sref="myProducts">Termékeim</a></li>
+                </ul>
+            </div>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a ng-click="dropdown = !dropdown" class="dropdown-toggle" href="#">
+                            <!-- The user image in the navbar-->
+                            <img class="user-image" src="/images/user.png">
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">{{user.name}}</span>
+                        </a>
+                        <ul class="dropdown-menu" ng-show="dropdown">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img class="img-circle" src="/images/user.png">
+
+                                <p>
+                                    {{user.name}}
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a ui-sref="profile" class="btn btn-default btn-flat">Adataim</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a ui-sref="logout" class="btn btn-default btn-flat">Kilépés</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

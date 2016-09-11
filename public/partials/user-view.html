@@ -1,0 +1,100 @@
+<section class="content-header">
+    <h1>Felhasználói adatlap</h1>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- right column -->
+        <div class="col-md-12">
+            <h2>Személyes adatok</h2>
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal form-datasheet">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <span class="col-sm-4">Név</span>
+                            <span class="col-sm-8">{{user.name}}</span>
+                        </div>
+                        <div class="form-group" ng-show="user.resellerCode">
+                            <span class="col-sm-4">Beszállítói azonosító</span>
+                            <span class="col-sm-8">{{user.resellerCode}}</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-sm-4">Email</span>
+                            <span class="col-sm-8">{{user.email}}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-4">Irányítószám</span>
+                            <span class="col-sm-8">{{user.postalCode}}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-4">Város</span>
+                            <span class="col-sm-8">{{user.city}}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-4">Közterület</span>
+                            <span class="col-sm-8">{{user.street}}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-4">Telefonszám</span>
+                            <span class="col-sm-8">{{user.phone}}</span>
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+
+    </div>
+
+    <div class="col-md-12">
+        <h2>Termékek</h2>
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+            <div class="box-body">
+                <table class="table movietable">
+                    <tr ng-repeat="product in pager.items">
+                        <td>{{product.title}}</td>
+                        <td>{{product.createdAt}}</td>
+                        <td>
+                            <a class="btn btn-primary" ui-sref="viewProduct({id:product.id})">Megtekint</a>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <!-- pager -->
+                <ul ng-if="pager.pages.length" class="pagination">
+                    <li ng-class="{disabled:pager.currentPage === 1}">
+                        <a ng-click="setPage(1)">Első</a>
+                    </li>
+                    <li ng-class="{disabled:pager.currentPage === 1}">
+                        <a ng-click="setPage(pager.currentPage - 1)">Előző</a>
+                    </li>
+                    <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+                        <a ng-click="setPage(page)">{{page}}</a>
+                    </li>
+                    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                        <a ng-click="setPage(pager.currentPage + 1)">Következő</a>
+                    </li>
+                    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                        <a ng-click="setPage(pager.totalPages)">Utolsó</a>
+                    </li>
+                </ul>
+                <!-- /.box -->
+
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <button class="btn btn-default" type="submit" ng-click="back()">Vissza</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>

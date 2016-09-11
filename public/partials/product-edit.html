@@ -1,0 +1,72 @@
+<section class="content-header">
+    <h1>Termék módosítása</h1>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Elnevezés</label>
+                            <input md-maxlength="140" ng-model="product.title" name="title" required>
+                            <div ng-messages="productAddForm.title.$error" ng-if="productAddForm.$submitted || productAddForm.title.$touched" ng-hide="productAddForm.title.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Azonosító</label>
+                            <input md-maxlength="140" ng-model="product.identifier" name="identifier" required>
+                            <div ng-messages="productAddForm.identifier.$error" ng-if="productAddForm.$submitted || productAddForm.identifier.$touched" ng-hide="productAddForm.identifier.$valid">
+                                <div ng-message="required">Kötelezően kitöltendő.</div>
+                                <div ng-message="md-maxlength">Legfeljebb 140 karekter lehet.</div>
+                            </div>
+                        </md-input-container>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <qrcode size="200" data="{{product.identifier}}" download error-correction-level="M" version="5"></qrcode>
+                            </div>
+                        </div>
+                        <h4>Gyártás dátuma</h4>
+                        <md-datepicker ng-model="product.producedAt" name="producedAt" md-placeholder="Válassz" md-open-on-focus required>
+                        </md-datepicker>
+                        <div class="validation-messages" ng-messages="productAddForm.producedAt.$error" ng-if="productAddForm.$submitted || productAddForm.producedAt.$touched" ng-hide="productAddForm.producedAt.$valid">
+                            <div ng-message="required">Kötelezően kitöltendő!</div>
+                        </div>
+                        <h4>Raktározás dátuma</h4>
+                        <md-datepicker md-open-on-focus name="storedAt" required ng-model="product.storedAt" md-placeholder="Válassz"></md-datepicker>
+                        <div class="validation-messages" ng-messages="productAddForm.storedAt.$error" ng-if="productAddForm.$submitted || productAddForm.storedAt.$touched" ng-hide="productAddForm.storedAt.$valid">
+                            <div ng-message="required">Kötelezően kitöltendő!</div>
+                        </div>
+                        <h4>Szavatosság dátuma</h4>
+                        <md-datepicker md-open-on-focus name="useBefore" required ng-model="product.useBefore" md-placeholder="Válassz"></md-datepicker>
+                        <div class="validation-messages" ng-messages="productAddForm.useBefore.$error" ng-if="productAddForm.$submitted || productAddForm.useBefore.$touched" ng-hide="productAddForm.useBefore.$valid">
+                            <div ng-message="required">Kötelezően kitöltendő!</div>
+                        </div>
+                        <h2>Csatolt file-ok</h2>
+                        <table class="table movietable">
+                            <tr ng-repeat="file in product.files">
+                                <td><span class="col-sm-12"><a href="{{host}}{{file.path}}" target="_blank">{{file.title}}</a></span></td>
+                                <td>
+                                    <a class="btn btn-danger" ng-click="deleteFile({id:file.id})">Törlés</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button class="btn btn-default" type="submit" ng-click="cancelProduct()">Mégse</button>
+                        <button class="btn btn-info pull-right" type="submit" ng-click="updateProduct()">Módosít</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+            </div>
+    </div>
+</section>
